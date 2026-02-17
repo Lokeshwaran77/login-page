@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+
+    <input type="text" id="username" placeholder="Enter Username">
+    <input type="email" placeholder="Enter Email">
+    <input type="password" id="password" placeholder="Enter Password">
+
+    <div class="counter">
+        <button onclick="decrement()">-</button>
+        <span id="count">0</span>
+        <button onclick="increment()">+</button>
+    </div>
+
+    <button onclick="login()">Login</button>
+
+    <p id="message"></p>
+</div>
+
+<script>
+let count = 0;
+
+
+function increment() {
+    count++;
+    document.getElementById("count").innerText = count;
+}
+
+function decrement() {
+    if (count > 0) {
+        count--;
+        document.getElementById("count").innerText = count;
+    }
+}
+
+function login() {
+
+    const validUsername = "admin";
+    const validPassword = "1234";
+
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    if (user === validUsername && pass === validPassword) {
+        document.getElementById("message").innerText = "Login Successful";
+        document.getElementById("message").style.color = "green";
+    } else {
+        document.getElementById("message").innerText = "Invalid Username or Password";
+        document.getElementById("message").style.color = "red";
+    }
+}
+
+</script>
+
+</body>
+</html>
